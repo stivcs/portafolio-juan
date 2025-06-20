@@ -1,0 +1,79 @@
+/* Fondo siempre visible */
+.background-rotator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
+    z-index: -1;
+}
+
+/* Logo splash al centro absoluto */
+.logo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.logo {
+    width: 100%;
+}
+
+/* Header fijo al tope centrado */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.356);
+    z-index: 1000;
+}
+
+
+.header-logo-wrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo {
+    height: 50px;
+}
+
+.nav-item {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-shadow: #ff0101 0px 0px 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #585858;
+    
+    /* Cambia el color al pasar el mouse */
+}
+
+.main-content {
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+    color: white;
+}
