@@ -1,17 +1,7 @@
 <!-- Fondo rotador fijo -->
 <!-- Fondo actual -->
-<div
-  class="background-layer"
-  *ngIf="showFirst"
-  [style.backgroundImage]="imageList[currentIndex]"
-></div>
+<div class="background-rotator" [style.backgroundImage]="currentBackground"></div>
 
-<!-- Fondo siguiente -->
-<div
-  class="background-layer"
-  *ngIf="!showFirst"
-  [style.backgroundImage]="imageList[currentIndex]"
-></div>
 <!-- Logo animado tipo splash -->
 <div #splashLogo class="logo-container" *ngIf="showSplash">
   <img *ngIf="esta" src="images/logo.png" alt="Logo" class="logo" />

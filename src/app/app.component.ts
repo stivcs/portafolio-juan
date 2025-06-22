@@ -11,31 +11,28 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   imageList: string[] = [
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/1_pwo0yv.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/5_dddgms.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/2_yydl7h.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/4_dtyjco.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/3_uhc9ef.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/6_pkvsua.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/7_crcdbm.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/8_wniyv2.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/9_m0fpzj.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/10_taxipd.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/11_etn2ib.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/12_mst9yl.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/13_e9wwwm.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/14_bki0kv.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/15_ynel2i.webp")',
-    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/16_jfzu9g.webp")'
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/1_pwo0yv.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/5_dddgms.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/2_yydl7h.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/4_dtyjco.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/3_uhc9ef.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/6_pkvsua.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/7_crcdbm.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/8_wniyv2.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/9_m0fpzj.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/10_taxipd.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/11_etn2ib.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/12_mst9yl.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/13_e9wwwm.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/14_bki0kv.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/15_ynel2i.webp',
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/16_jfzu9g.webp'
   ];
   title = 'portafolio-juan';
   animateLogo = false;
   showSplash = true;
-  currentBackground = this.imageList[0];
-  nextBackground = this.imageList[0]; // para precarga
-  isImageReady = true;
   currentIndex = 0;
-  showFirst = true;
+  currentBackground = `url("${this.imageList[0]}")`;
   esta: boolean = false;
   @ViewChild('splashLogo') splashLogo!: ElementRef<HTMLDivElement>;
   @ViewChild('logoTarget') logoTarget!: ElementRef<HTMLDivElement>;
@@ -51,19 +48,18 @@ export class AppComponent implements OnInit {
     }, 2000);
 
     setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.imageList.length;
-      this.showFirst = !this.showFirst; // cambia de capa y actualiza imagen
-    }, 5000);
-  }
-  // Extrae la URL real del estilo background-image
-  getUrlOnly(backgroundStyle: string): string {
-    return backgroundStyle.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-  }
+      const nextIndex = (this.currentIndex + 1) % this.imageList.length;
+      const nextImageUrl = this.imageList[nextIndex];
 
-  // Llamado cuando se carga la imagen precargada
-  onImageLoaded() {
-    this.isImageReady = true;
-    this.currentBackground = this.nextBackground;
+      // Pre-carga la imagen manualmente
+      const img = new Image();
+      img.src = nextImageUrl;
+      img.onload = () => {
+        // Cuando la imagen esté lista, cambia el fondo
+        this.currentBackground = `url("${nextImageUrl}")`;
+        this.currentIndex = nextIndex;
+      };
+    }, 5000);
   }
 
   animateLogoToHeader() {
