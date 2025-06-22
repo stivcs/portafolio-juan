@@ -46,6 +46,7 @@
     justify-content: center;
     gap: 3rem;
     padding: 1rem 2rem;
+    margin-bottom: 2rem;
     width: 100%;
     backdrop-filter: blur(3px);
     background-color: rgba(0, 0, 0, 0.356);
@@ -54,15 +55,15 @@
 
 
 .header-logo-wrapper {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .header-logo {
-    height: 50px;
+    height: 40px;
 }
 
 .nav-item {
@@ -85,4 +86,13 @@
     z-index: 10;
     padding: 2rem;
     color: white;
+}
+
+.main-title{
+    font-family: 'principal', sans-serif;
+    font-size: 5.5rem;
+    text-align: center;
+    text-decoration: black underline;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
 }

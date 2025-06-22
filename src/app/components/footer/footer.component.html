@@ -1,0 +1,69 @@
+<footer class="footer-section">
+  <div class="footer-backdrop"></div>
+  <div class="footer-content container">
+    <div class="row d-flex justify-content-between flex-wrap text-white">
+      <!-- Empresa -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h3 class="footer-title">Zeven.studios</h3>
+        <p class="footer-text">Creamos las mejores fotos y diseños para tu empresa, emprendimiento o para uso personal</p>
+        <div class="d-flex gap-2 mt-2">
+          <div class="footer-dot footer-dot-blue"></div>
+          <div class="footer-dot footer-dot-purple"></div>
+          <div class="footer-dot footer-dot-pink"></div>
+        </div>
+      </div>
+
+      <!-- Contacto -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="footer-subtitle">Contacto</h4>
+        <ul class="list-unstyled footer-contact-list">
+          <li class="d-flex align-items-center mb-2">
+            <i class="bi bi-envelope-fill me-2 text-info"></i>
+            <span class="footer-contact-text">{{ correo }}</span>
+          </li>
+          <li class="d-flex align-items-center mb-2">
+            <i class="bi bi-telephone-fill me-2 text-success"></i>
+            <span class="footer-contact-text">+57 (321) 774-7176</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <i class="bi bi-geo-alt-fill me-2 text-warning"></i>
+            <span class="footer-contact-text">Manizales, Colombia</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="footer-subtitle">Servicios</h4>
+        <ul class="footer-services-list list-unstyled">
+          <li *ngFor="let service of services" class="footer-service-item d-flex align-items-center">
+            <div class="footer-service-dot me-2"></div>
+            <span>{{ service }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="footer-subtitle">Síguenos</h4>
+        <div class="d-flex gap-2">
+          <a *ngFor="let social of socialLinks" class="btn footer-social-btn" [ngClass]="social.color"
+            [href]="social.url" [attr.aria-label]="social.name" target="_blank" rel="noopener noreferrer">
+            <i class="bi" [ngClass]="'bi-' + social.icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider mt-4">
+    <div class="text-center">
+      <p class="footer-copyright">
+        © {{ getCurrentYear() }} Zeven.studios. Todos los derechos reservados. Creado por
+        <span class="footer-creator">
+          <i class="bi bi-github me-1"></i>
+          <a href="https://github.com/stivcs" target="_blank" rel="noopener noreferrer">stivcs</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
