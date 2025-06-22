@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ServiciosService } from './services/servicios.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,19 +10,38 @@ import { ServiciosService } from './services/servicios.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  constructor(private serviciosService: ServiciosService) { }
-  imageList: string[] = [];
+  imageList: string[] = [
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/1_pwo0yv.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/5_dddgms.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/2_yydl7h.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/4_dtyjco.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/3_uhc9ef.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/6_pkvsua.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/7_crcdbm.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/8_wniyv2.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/9_m0fpzj.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/10_taxipd.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/11_etn2ib.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569813/12_mst9yl.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/13_e9wwwm.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/14_bki0kv.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/15_ynel2i.webp")',
+    'url("https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/16_jfzu9g.webp")'
+  ];
   title = 'portafolio-juan';
   animateLogo = false;
   showSplash = true;
   currentBackground = this.imageList[0];
+  nextBackground = this.imageList[0]; // para precarga
+  isImageReady = true;
   currentIndex = 0;
+  showFirst = true;
   esta: boolean = false;
   @ViewChild('splashLogo') splashLogo!: ElementRef<HTMLDivElement>;
   @ViewChild('logoTarget') logoTarget!: ElementRef<HTMLDivElement>;
 
   ngOnInit() {
-    this.imageList = this.serviciosService.getFondos();
+    // this.imageList = this.serviciosService.getFondos();
     setTimeout(() => {
       this.animateLogoToHeader();
 
@@ -33,8 +52,18 @@ export class AppComponent implements OnInit {
 
     setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.imageList.length;
-      this.currentBackground = this.imageList[this.currentIndex];
+      this.showFirst = !this.showFirst; // cambia de capa y actualiza imagen
     }, 5000);
+  }
+  // Extrae la URL real del estilo background-image
+  getUrlOnly(backgroundStyle: string): string {
+    return backgroundStyle.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+  }
+
+  // Llamado cuando se carga la imagen precargada
+  onImageLoaded() {
+    this.isImageReady = true;
+    this.currentBackground = this.nextBackground;
   }
 
   animateLogoToHeader() {

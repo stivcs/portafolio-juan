@@ -1,13 +1,24 @@
 <!-- Fondo rotador fijo -->
-<div class="background-rotator" [ngStyle]="{ 'background-image': currentBackground }"></div>
+<!-- Fondo actual -->
+<div
+  class="background-layer"
+  *ngIf="showFirst"
+  [style.backgroundImage]="imageList[currentIndex]"
+></div>
 
+<!-- Fondo siguiente -->
+<div
+  class="background-layer"
+  *ngIf="!showFirst"
+  [style.backgroundImage]="imageList[currentIndex]"
+></div>
 <!-- Logo animado tipo splash -->
 <div #splashLogo class="logo-container" *ngIf="showSplash">
   <img *ngIf="esta" src="images/logo.png" alt="Logo" class="logo" />
 </div>
 
 <!-- Header con logo fijo en el centro -->
-<header class="main-header">
+<header class="main-header" >
   <h1 class="nav-item">Servicios</h1>
 
   <!-- Logo destino siempre visible pero transparente durante splash -->
