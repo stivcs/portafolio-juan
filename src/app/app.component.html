@@ -1,6 +1,8 @@
 <!-- Fondo rotador fijo -->
 <!-- Fondo actual -->
-<div class="background-rotator" [style.backgroundImage]="currentBackground"></div>
+<div class="background-rotator" [style.backgroundImage]="currentBackground">
+  <div class="background-overlay"></div>
+</div>
 
 <!-- Logo animado tipo splash -->
 <div #splashLogo class="logo-container" *ngIf="showSplash">
@@ -9,7 +11,7 @@
 
 <!-- Header con logo fijo en el centro -->
 <header class="main-header" >
-  <h1 class="nav-item">Servicios</h1>
+  <h1 class="nav-item principal">Servicios</h1>
 
   <!-- Logo destino siempre visible pero transparente durante splash -->
   <div #logoTarget class="header-logo-wrapper">
@@ -17,7 +19,7 @@
       [style.transition]="'opacity 0.5s ease-in-out'" />
   </div>
 
-  <h1 class="nav-item">Sobre mí</h1>
+  <h1 class="nav-item principal">Sobre mí</h1>
 </header>
 
 <!-- Contenido -->

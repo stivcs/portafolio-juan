@@ -12,6 +12,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 })
 export class AppComponent implements OnInit {
   imageList: string[] = [
+    'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750648209/1a_nzih8k.webp',
     'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/1_pwo0yv.webp',
     'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/5_dddgms.webp',
     'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/2_yydl7h.webp',
