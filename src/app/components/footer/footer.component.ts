@@ -21,7 +21,7 @@ export class FooterComponent {
     url: "https://www.facebook.com/tuempresa"
   },
   {
-    icon: "twitter", color: "btn-info", name: "Twitter",
+    icon: "twitter-x", color: "btn-info", name: "Twitter",
     url: "https://twitter.com/tuempresa"
   },
   {
@@ -35,7 +35,7 @@ export class FooterComponent {
 ]
 
   services: string[] = [
-    'fotografía de conciertos',
+    'Fotografía de conciertos',
     'Fotografia de estudio para modelos',
     'Fotografia de producto',
     'Fotografia comercial',

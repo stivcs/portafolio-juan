@@ -1,0 +1,89 @@
+.about-us-container {
+  padding: 5rem 2rem;
+  color: white;
+}
+
+.about-title {
+  text-align: center;
+  font-family: 'principal', sans-serif;
+  text-transform: uppercase;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Imagen sola */
+.about-images {
+  flex-shrink: 0;
+}
+
+.about-img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Caja de texto que forma L inversa */
+.about-text-box {
+  flex: 1;
+  min-height: 280px; /* igual a la altura de la imagen */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px white;
+  padding: 2rem;
+}
+
+/* Tipografía */
+.title {
+  font-family: 'principal', sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+h4 {
+  font-family: 'principal', sans-serif;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+.text {
+  font-family: 'secundaria', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-text-box {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+
+
+

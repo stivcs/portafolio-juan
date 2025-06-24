@@ -1,1 +1,19 @@
-<p>contactanos works!</p>
+<h1 class="text-center">Contactanos</h1>
+<div class="email-form-container">
+  <h2>Formulario de Contacto</h2>
+  
+  <form (ngSubmit)="sendEmail()" #form="ngForm">
+    <label for="name">Nombre: </label>
+    <input type="text" placeholder="Tu nombre" [(ngModel)]="formData.name" name="name" required />
+    <label for="name">Correo: </label>
+    <input type="email" placeholder="Tu correo" [(ngModel)]="formData.email" name="email" required />
+    <label for="name">Mensaje: </label>
+    <textarea placeholder="Mensaje" [(ngModel)]="formData.message" name="message" required rows="4"></textarea>
+    
+    <button type="submit" class="btn" [disabled]="form.invalid || cargando">
+      {{ cargando ? 'Enviando...' : 'Enviar' }}
+      <span *ngIf="cargando" class="spinner"></span>
+    </button>
+  </form>
+</div>
+

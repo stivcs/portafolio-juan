@@ -10,22 +10,43 @@
 </div>
 
 <!-- Header con logo fijo en el centro -->
-<header class="main-header" >
-  <h1 class="nav-item principal">Servicios</h1>
+<header class="main-header">
+  <!-- Servicios -->
+   <a [routerLink]="['/servicios']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
+    class="nav-item principal">
+    dozis
+  </a>
+  <a [routerLink]="['/servicios']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
+    class="nav-item principal">
+    Servicios
+  </a>
+  
 
-  <!-- Logo destino siempre visible pero transparente durante splash -->
+  <!-- Logo con routerLink a la raíz -->
   <div #logoTarget class="header-logo-wrapper">
-    <img src="images/logo.png" alt="Logo" class="header-logo nav-item" [style.opacity]="showSplash ? 0 : 1"
-      [style.transition]="'opacity 0.5s ease-in-out'" />
+    <a [routerLink]="['/']">
+      <img src="images/logo.png" alt="Logo" class="header-logo nav-item" [style.opacity]="showSplash ? 0 : 1"
+        [style.transition]="'opacity 0.5s ease-in-out'" />
+    </a>
   </div>
 
-  <h1 class="nav-item principal">Sobre mí</h1>
+  <!-- Sobre mí -->
+  <a [routerLink]="['/abautMe']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
+    class="nav-item principal">
+    Nosotros
+  </a>
+
+  <!-- Contacto -->
+  <a [routerLink]="['/contacto']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
+    class="nav-item principal">
+    Contacto
+  </a>
 </header>
 
 <!-- Contenido -->
 <div class="main-content" *ngIf="!showSplash">
   <router-outlet />
-  
+
 </div>
 <!-- Footer -->
-<app-footer *ngIf="!showSplash"/>
+<app-footer *ngIf="!showSplash" />

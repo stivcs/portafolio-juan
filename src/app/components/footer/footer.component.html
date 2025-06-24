@@ -5,7 +5,10 @@
       <!-- Empresa -->
       <div class="col-lg-3 col-md-6 mb-4">
         <h3 class="footer-title">Zeven.studios</h3>
-        <p class="footer-text">Creamos las mejores fotos y diseños para tu empresa, emprendimiento o para uso personal</p>
+        <p class="footer-text">Zeven es más que una marca de fotografía.
+Es una forma de recordar.
+Es hacer memoria con luz.
+Es volver a sentir, con solo mirar.</p>
         <div class="d-flex gap-2 mt-2">
           <div class="footer-dot footer-dot-blue"></div>
           <div class="footer-dot footer-dot-purple"></div>
@@ -47,7 +50,7 @@
       <div class="col-lg-3 col-md-6 mb-4">
         <h4 class="footer-subtitle">Síguenos</h4>
         <div class="d-flex gap-2">
-          <a *ngFor="let social of socialLinks" class="btn footer-social-btn" [ngClass]="social.color"
+          <a *ngFor="let social of socialLinks" class="btn footer-social-btn" 
             [href]="social.url" [attr.aria-label]="social.name" target="_blank" rel="noopener noreferrer">
             <i class="bi" [ngClass]="'bi-' + social.icon"></i>
           </a>

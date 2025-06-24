@@ -1,0 +1,101 @@
+h1 {
+  text-align: center;
+  font-family: 'principal', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: #fff;
+  margin-top: 70px;
+  color: #fff;
+}
+
+.email-form-container {
+  max-width: 620px;
+  margin: 40px auto;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 16px;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.829);
+  transition: all 0.3s ease;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'secundaria', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-family: 'secundaria', sans-serif;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(248, 248, 248, 0.993);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 14px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  /* border-color: #0066ff; */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.788);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+button.btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #797a7a;
+}
+
+button[disabled] {
+  opacity: 0.6;
+  background-color: #000000;
+  border: #ffffff solid 1px;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* Spinner simple */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

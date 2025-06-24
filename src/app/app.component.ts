@@ -1,16 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./components/footer/footer.component";
+import { filter } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, FooterComponent],
+  imports: [RouterOutlet, CommonModule, FooterComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+  constructor(private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // 👈 Scroll hacia arriba en cada ruta
+    });
+  }
   imageList: string[] = [
     'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750648209/1a_nzih8k.webp',
     'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569812/1_pwo0yv.webp',
@@ -47,7 +55,7 @@ export class AppComponent implements OnInit {
       setTimeout(() => {
         this.showSplash = false;
       }, 1000);
-    }, 2000);
+    }, 4000);
 
     setInterval(() => {
       const nextIndex = (this.currentIndex + 1) % this.imageList.length;
