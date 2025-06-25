@@ -10,6 +10,7 @@ import emailjs from 'emailjs-com';
   styleUrl: './contactanos.component.css'
 })
 export class ContactanosComponent {
+  showModal = false;
   formData = {
     name: '',
     email: '',
@@ -34,15 +35,20 @@ export class ContactanosComponent {
       'eNoqqyKZBO_p9_Y3J'
     ).then(
       (response) => {
-        alert('Correo enviado correctamente!');
+        console.log('Correo enviado correctamente!');
         this.formData = { name: '', email: '', message: '' };
         this.cargando = false;
+       this.showModal = true; // Mostrar el modal
+        
       },
       (error) => {
-        alert('Error al enviar el correo.');
         console.error(error);
         this.cargando = false;
+        alert('Error al enviar el mensaje');
       }
     );
+  }
+  closeModal() {
+    this.showModal = false;
   }
 }

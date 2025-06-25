@@ -1,12 +1,3 @@
-/* Imagen precargada invisible */
-/* .preload-image {
-  position: absolute;
-  top: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
-
 /* Fondo que hace fade sin parpadeo */
 .background-rotator {
   position: fixed;
@@ -122,4 +113,141 @@
     text-decoration: black underline;
     margin-top: 5rem;
     margin-bottom: 1rem;
+}
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  gap: 0;
+}
+
+.nav-group {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.header-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem; /* Opcional, ajusta según el tamaño del logo */
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: white solid 1px;
+  border-radius: 15px;
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2000;
+}
+.menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: #fff 0px 0px 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-wrapper {
+    flex-direction: column;
+  }
+
+  .nav-group {
+    flex-direction: column;
+    display: none;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .nav-group.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-logo-wrapper {
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .principal {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-shadow: none;
+  }
+
+  .header-logo-wrapper {
+    width: 30px;
+    height: 30px;
+  }
+
+  .header-logo {
+    height: 30px;
+  }
+
+  .nav-item {
+    font-size: 1rem;
+    padding-bottom: 2px;
+  }
+
+  .logo-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .main-title {
+    font-size: 3rem;
+    margin-top: 4rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .principal {
+    font-size: 1rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .logo-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .header-logo-wrapper {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header-logo {
+    height: 24px;
+  }
 }

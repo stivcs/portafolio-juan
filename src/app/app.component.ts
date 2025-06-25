@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
     'https://res.cloudinary.com/dkpl4dnuw/image/upload/v1750569814/16_jfzu9g.webp'
   ];
   title = 'portafolio-juan';
+  menuOpen = false;
   animateLogo = false;
   showSplash = true;
   currentIndex = 0;

@@ -1,52 +1,65 @@
 <!-- Fondo rotador fijo -->
-<!-- Fondo actual -->
 <div class="background-rotator" [style.backgroundImage]="currentBackground">
   <div class="background-overlay"></div>
 </div>
 
-<!-- Logo animado tipo splash -->
+<!-- Logo splash -->
 <div #splashLogo class="logo-container" *ngIf="showSplash">
   <img *ngIf="esta" src="images/logo.png" alt="Logo" class="logo" />
 </div>
 
-<!-- Header con logo fijo en el centro -->
+<!-- Header -->
 <header class="main-header">
-  <!-- Servicios -->
-   <a [routerLink]="['/servicios']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
-    class="nav-item principal">
-    dozis
-  </a>
-  <a [routerLink]="['/servicios']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
-    class="nav-item principal">
-    Servicios
-  </a>
-  
 
-  <!-- Logo con routerLink a la raíz -->
-  <div #logoTarget class="header-logo-wrapper">
-    <a [routerLink]="['/']">
-      <img src="images/logo.png" alt="Logo" class="header-logo nav-item" [style.opacity]="showSplash ? 0 : 1"
-        [style.transition]="'opacity 0.5s ease-in-out'" />
-    </a>
+  <!-- Botón hamburguesa (solo visible en móvil) -->
+  <button class="menu-toggle" (click)="menuOpen = !menuOpen">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <!-- Wrapper general -->
+  <div class="nav-wrapper">
+
+    <!-- Bloque izquierdo -->
+    <div class="nav-group" [class.open]="menuOpen">
+      <a [routerLink]="['/servicios']" routerLinkActive="activo" (click)="menuOpen = false"
+         [routerLinkActiveOptions]="{ exact: true }" class="nav-item principal">
+        dozis
+      </a>
+      <a [routerLink]="['/servicios']" routerLinkActive="activo" (click)="menuOpen = false"
+         [routerLinkActiveOptions]="{ exact: true }" class="nav-item principal">
+        Servicios
+      </a>
+    </div>
+
+    <!-- Logo en el centro exacto -->
+    <div #logoTarget class="header-logo-wrapper">
+      <a [routerLink]="['/']" (click)="menuOpen = false">
+        <img src="images/logo.png" alt="Logo" class="header-logo nav-item"
+             [style.opacity]="showSplash ? 0 : 1"
+             [style.transition]="'opacity 0.5s ease-in-out'" />
+      </a>
+    </div>
+
+    <!-- Bloque derecho -->
+    <div class="nav-group" [class.open]="menuOpen">
+      <a [routerLink]="['/abautMe']" routerLinkActive="activo" (click)="menuOpen = false"
+         [routerLinkActiveOptions]="{ exact: true }" class="nav-item principal">
+        Nosotros
+      </a>
+      <a [routerLink]="['/contacto']" routerLinkActive="activo" (click)="menuOpen = false"
+         [routerLinkActiveOptions]="{ exact: true }" class="nav-item principal">
+        Contacto
+      </a>
+    </div>
+
   </div>
-
-  <!-- Sobre mí -->
-  <a [routerLink]="['/abautMe']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
-    class="nav-item principal">
-    Nosotros
-  </a>
-
-  <!-- Contacto -->
-  <a [routerLink]="['/contacto']" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }"
-    class="nav-item principal">
-    Contacto
-  </a>
 </header>
 
 <!-- Contenido -->
 <div class="main-content" *ngIf="!showSplash">
   <router-outlet />
-
 </div>
+
 <!-- Footer -->
 <app-footer *ngIf="!showSplash" />
+
